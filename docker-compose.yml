@@ -1,0 +1,47 @@
+version: '3.3'
+
+networks:
+  web:
+    external: true
+  stack:
+    external: false
+
+services:
+  application:
+    build:
+      context: .
+      dockerfile: docker/application/application.Dockerfile
+      args:
+        USER_ID: $USER_ID
+        GROUP_ID: $GROUP_ID
+    extra_hosts:
+      - 'chaosfl.localhost:127.0.0.1'
+    networks:
+      - web
+      - stack
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.chaosfl.rule=Host(`chaosfl.localhost`)"
+      - "traefik.http.routers.chaosfl.entrypoints=web"
+      - "traefik.http.services.chaosfl.loadbalancer.server.port=80"
+      - "traefik.docker.network=web"
+    working_dir: /var/www/html
+    volumes:
+      - ./docker/application/php.ini:/usr/local/etc/php/php.ini:cached
+      - ./:/var/www/html
+    restart: always
+
+  tooling:
+    build:
+      context: .
+      dockerfile: docker/tooling/tooling.Dockerfile
+      args:
+        USER_ID: $USER_ID
+        GROUP_ID: $GROUP_ID
+    networks:
+      - stack
+    tty: true
+    working_dir: /var/www/html
+    volumes:
+      - ./:/var/www/html
+    restart: always

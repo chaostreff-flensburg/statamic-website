@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="{{ site:short_locale }}">
+<head>
+    {{ partial:layouts/meta }}
+    {{ partial:layouts/favicons }}
+    {{ partial:layouts/seo }}
+    <link rel="stylesheet" href="{{ mix src='/css/site.css' }}">
+</head>
+<body class="text-base antialiased font-light">
+    {{ partial:layouts/header }}
+    {{ yield:seo_body }}
+    <main>
+        {{ template_content }}
+    </main>
+    {{ partial:layouts/footer }}
+    {{ partial:layouts/scripts }}
+    {{ partial:utility-class-helper }}
+</body>
+</html>
