@@ -1,0 +1,6 @@
+title: Artikel
+template: article/show
+revisions: false
+date_behavior:
+  past: public
+  future: private

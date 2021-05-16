@@ -1,0 +1,21 @@
+title: Pagebuilder
+fields:
+  -
+    handle: replicator
+    field:
+      collapse: false
+      sets:
+        text:
+          display: Text
+          fields:
+            -
+              import: bard
+        image:
+          display: Bild
+          fields:
+            -
+              import: image
+      display: Replicator
+      type: replicator
+      icon: replicator
+      listable: hidden

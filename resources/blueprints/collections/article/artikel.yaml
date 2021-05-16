@@ -1,0 +1,55 @@
+title: Artikel
+sections:
+  main:
+    display: Hauptteil
+    fields:
+      -
+        handle: title
+        field:
+          type: text
+          required: true
+          validate:
+            - required
+      -
+        handle: date
+        field:
+          mode: single
+          time_enabled: false
+          time_required: false
+          earliest_date: '1900-01-01'
+          full_width: false
+          inline: false
+          columns: 1
+          rows: 1
+          display: Datum
+          type: date
+          icon: date
+          listable: hidden
+          validate:
+            - required
+      -
+        handle: titleimage
+        field:
+          mode: grid
+          container: assets
+          restrict: false
+          allow_uploads: true
+          display: Titelbild
+          type: assets
+          icon: assets
+          listable: hidden
+          validate:
+            - required
+      -
+        import: pagebuilder
+  sidebar:
+    display: Sidebar
+    fields:
+      -
+        handle: slug
+        field:
+          type: slug
+          required: true
+          localizable: true
+          validate:
+            - required

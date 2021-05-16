@@ -1,0 +1,107 @@
+title: Events
+sections:
+  main:
+    display: Hauptteil
+    fields:
+      -
+        handle: title
+        field:
+          type: text
+          required: true
+          validate:
+            - required
+      -
+        handle: titleImage
+        field:
+          mode: grid
+          container: assets
+          restrict: false
+          allow_uploads: true
+          max_files: 1
+          display: Titelbild
+          type: assets
+          icon: assets
+          listable: hidden
+          validate:
+            - required
+            - image
+      -
+        handle: startDate
+        field:
+          mode: single
+          time_enabled: false
+          time_required: false
+          earliest_date: '1900-01-01'
+          full_width: false
+          inline: false
+          columns: 1
+          rows: 1
+          display: Startdatum
+          type: date
+          icon: date
+          width: 50
+          listable: hidden
+      -
+        handle: endDate
+        field:
+          mode: single
+          time_enabled: false
+          time_required: false
+          earliest_date: '1900-01-01'
+          full_width: false
+          inline: false
+          columns: 1
+          rows: 1
+          display: End-Datum
+          type: date
+          icon: date
+          width: 50
+          listable: hidden
+      -
+        handle: age
+        field:
+          input_type: text
+          antlers: false
+          display: Altersgruppe
+          type: text
+          icon: text
+          width: 50
+          listable: hidden
+      -
+        handle: price
+        field:
+          input_type: text
+          antlers: false
+          display: Preis
+          type: text
+          icon: text
+          width: 50
+          listable: hidden
+      -
+        handle: hint
+        field:
+          antlers: false
+          display: Hinweis
+          type: textarea
+          icon: textarea
+          listable: hidden
+      -
+        handle: pretix-link
+        field:
+          display: Pretix-link
+          type: link
+          icon: link
+          listable: hidden
+      -
+        import: pagebuilder
+  sidebar:
+    display: Sidebar
+    fields:
+      -
+        handle: slug
+        field:
+          type: slug
+          required: true
+          localizable: true
+          validate:
+            - required

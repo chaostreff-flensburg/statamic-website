@@ -1,0 +1,17 @@
+title: Bild
+fields:
+  -
+    handle: bild
+    field:
+      mode: grid
+      container: assets
+      restrict: false
+      allow_uploads: true
+      max_files: 1
+      display: Bild
+      type: assets
+      icon: assets
+      listable: hidden
+      validate:
+        - required
+        - image
